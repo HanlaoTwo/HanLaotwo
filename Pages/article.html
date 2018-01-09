@@ -3,32 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Article</title>
-    <script type="text/javascript" src="js/marked.js"></script>
-    <script type="text/javascript" src="js/require.js"></script>
+
 </head>
 <body>
 
+<button onclick="getMarkDown()">click to load</button>
+<div id="content">
+
+</div>
+
 </body>
+
+<script type="text/javascript" src="js/marked.js"></script>
 
 <script style="text/javascript">
 
-    var marked = require('marked');
-
-    var markdownString = '```js\n console.log("hello"); \n```';
-
-    renderer.heading = function (text, level) {
-        var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-
-        return '<h' + level + '><a name="' +
-                escapedText +
-                '" class="anchor" href="#' +
-                escapedText +
-                '"><span class="header-link"></span></a>' +
-                text + '</h' + level + '>';
-    },
-
-            console.log(marked('# heading+', { renderer: renderer }));
-
+    function getMarkDown() {
+        document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
+    }
 
 </script>
 

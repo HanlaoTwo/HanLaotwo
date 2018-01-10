@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3557655-8524-4f9a-af33-e7197075227a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pages/content/haha" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pages/js/jquery-3.2.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pyServer/LTserver.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pyServer/cgi-bin/getFile.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pyServer/cgi-bin/test.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pyServer/pyServer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pages/article.html" afterPath="$PROJECT_DIR$/Pages/article.html" />
     </list>
     <ignored path="Hanlaotwo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1004,12 +995,20 @@
       <workItem from="1515409484379" duration="3281000" />
       <workItem from="1515471235175" duration="4036000" />
       <workItem from="1515500643902" duration="6495000" />
-      <workItem from="1515591602413" duration="22000" />
+      <workItem from="1515591602413" duration="75000" />
     </task>
+    <task id="LOCAL-00001" summary="修改">
+      <created>1515591667308</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1515591667308</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13834000" />
+    <option name="totallyTimeSpent" value="13887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1053,6 +1052,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

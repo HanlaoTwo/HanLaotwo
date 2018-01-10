@@ -12,14 +12,47 @@
 
 </div>
 
+<div id="test">
+
+</div>
+
 </body>
 
 <script type="text/javascript" src="js/marked.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 
 <script style="text/javascript">
 
     function getMarkDown() {
-        document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
+        var content = '';
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8888/cgi-bin/getFile.py",
+            data: {},
+            dataType: "text",
+            success: function (reslut) {
+                console.log("-----------------" + reslut)
+                content = reslut;
+                console.log("(((((((((((((((" + content);
+                document.getElementById('content').innerHTML = marked(content);
+
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8888/cgi-bin/test.py",
+            data: {},
+            dataType: "text",
+            success: function (reslut) {
+                content = reslut;
+                console.log("-------------------" + content);
+                document.getElementById('test').innerHTML = marked(content);
+            }
+        });
+
+        console.log("-------------------" + content);
+
     }
 
 </script>

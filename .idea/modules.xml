@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Hanlaotwo.iml" filepath="$PROJECT_DIR$/Hanlaotwo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pages/Pages.iml" filepath="$PROJECT_DIR$/Pages/Pages.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyServer/pyServer.iml" filepath="$PROJECT_DIR$/pyServer/pyServer.iml" />
     </modules>
   </component>
 </project>

@@ -9,10 +9,11 @@
 
 <button onclick="getMarkDown()">click to load</button>
 <div id="content">
-
+    监听程序无法找到匹配协议栈的可用句柄.
 </div>
 
-<div id="test">
+<div id="test" content="text/html; charset=utf-8">
+
 
 </div>
 
@@ -20,38 +21,37 @@
 
 <script type="text/javascript" src="js/marked.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/showdown.js"></script>
 
 <script style="text/javascript">
 
     function getMarkDown() {
         var content = '';
         $.ajax({
-            type: "GET",
+            type: "post",
             url: "http://localhost:8888/cgi-bin/getFile.py",
-            data: {},
-            dataType: "text",
+            //data: {},
+            //dataType: "text",
             success: function (reslut) {
                 console.log("-----------------" + reslut)
                 content = reslut;
-                console.log("(((((((((((((((" + content);
-                document.getElementById('content').innerHTML = marked(content);
-
+                var converter = new showdown.Converter();
+                var text = '#hello, markdown!';
+                var html = converter.makeHtml(content);
+                document.getElementById('content').innerHTML = html;
             }
         });
-
         $.ajax({
             type: "GET",
             url: "http://localhost:8888/cgi-bin/test.py",
-            data: {},
-            dataType: "text",
+            //data: {},
+            //dataType: "text",
             success: function (reslut) {
                 content = reslut;
                 console.log("-------------------" + content);
                 document.getElementById('test').innerHTML = marked(content);
             }
         });
-
-        console.log("-------------------" + content);
 
     }
 

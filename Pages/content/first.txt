@@ -10,7 +10,7 @@
     order by t.FIRST_LOAD_TIME desc;
 
 - #### 锁表
-```
+```md
 select b.OBJECT_NAME,a.ORACLE_USERNAME,a.OS_USER_NAME,a.PROCESS, c.program,c.terminal,c.sid,c.serial#
 from V$LOCKED_OBJECT a,DBA_OBJECTS b,v$session c where   (a.OBJECT_ID=b.OBJECT_ID and c.sid=a.session_id)
 order by a.ORACLE_USERNAME,b.OBJECT_NAME;

@@ -1,16 +1,16 @@
-- #### 查看表结构
+#### 查看表结构
 ```
  describe nchar_tst
 ```
-- #### 查操作记录
+#### 查操作记录
 
     select t.SQL_TEXT, t.FIRST_LOAD_TIME
     from v$sqlarea t
     where t.SQL_TEXT like 'delete%' and t.FIRST_LOAD_TIME like '2017%'
     order by t.FIRST_LOAD_TIME desc;
 
-- #### 锁表
-```md
+#### 锁表
+```
 select b.OBJECT_NAME,a.ORACLE_USERNAME,a.OS_USER_NAME,a.PROCESS, c.program,c.terminal,c.sid,c.serial#
 from V$LOCKED_OBJECT a,DBA_OBJECTS b,v$session c where   (a.OBJECT_ID=b.OBJECT_ID and c.sid=a.session_id)
 order by a.ORACLE_USERNAME,b.OBJECT_NAME;
@@ -18,7 +18,7 @@ order by a.ORACLE_USERNAME,b.OBJECT_NAME;
 alter system kill session '198,240';
 ```
 
-- #### 会话数太多
+#### 会话数太多
 > ORA-12516: TNS: 监听程序无法找到匹配协议栈的可用句柄.
 TNS-12516 TNS:listener could not find available handler with matching protocol stack
 
@@ -31,14 +31,14 @@ select count(*) from v$session;
 
 [Oracle中会话的状态](http://blog.csdn.net/haiross/article/details/43447353)
 
-- #### java.sql.SQLException: ORA-00911: 无效字符
+#### java.sql.SQLException: ORA-00911: 无效字符
 sql多了一个";" 去掉就可以了
 
-- #### 查看建表语句
+#### 查看建表语句
 
 select dbms_metadata.get_ddl('TABLE','ELIGRISKMATCH') from dual;
 
-- #### 恢复数据
+#### 恢复数据
 
 [恢复数据](http://www.cnblogs.com/chaizp/p/5192522.html)
 ```

@@ -7,9 +7,8 @@
 </head>
 <body>
 
-<button onclick="getMarkDown()">click to load</button>
 <div id="content">
-    监听程序无法找到匹配协议栈的可用句柄.
+
 </div>
 
 <div id="test" content="text/html; charset=utf-8">
@@ -24,16 +23,26 @@
 <script type="text/javascript" src="js/showdown.js"></script>
 
 <script style="text/javascript">
-
+    getMarkDown()
     function getMarkDown() {
         var content = '';
+        var markedOptions = {
+            //highlight: true,
+            pedantic: true,
+            gfm: true,
+            tables: true,
+            breaks: true,
+            //sanitize: true,
+            smartLists: true,
+            smartypants: true,
+            xhtml: true
+        };
         $.ajax({
             type: "post",
             url: "http://localhost:8888/cgi-bin/getFile.py",
             //data: {},
             //dataType: "text",
             success: function (reslut) {
-                console.log("-----------------" + reslut)
                 content = reslut;
                 var converter = new showdown.Converter();
                 var text = '#hello, markdown!';
@@ -41,17 +50,17 @@
                 document.getElementById('content').innerHTML = html;
             }
         });
-        $.ajax({
+        /*$.ajax({
             type: "GET",
-            url: "http://localhost:8888/cgi-bin/test.py",
-            //data: {},
-            //dataType: "text",
+            url: "http://localhost:8888/cgi-bin/getFile.py",
             success: function (reslut) {
                 content = reslut;
-                console.log("-------------------" + content);
+                //var tokens = marked.lexer(content);//把text解析为一个marked.js的内部对象
+                //console.log(marked.parser(tokens));//又把这个对象转化为html字符串。（<p>text</p>）
                 document.getElementById('test').innerHTML = marked(content);
             }
-        });
+        });*/
+
 
     }
 

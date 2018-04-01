@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+
+</head>
+<body>
+
+<div id="content">
+
+</div>
+
+<div id="test" content="text/html; charset=utf-8">
+
+
+</div>
+
+</body>
+
+<!--<script type="text/javascript" src="js/marked.js"></script>-->
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../js/showdown.js"></script>
+<link rel="stylesheet" type="text/css" href="code.css">
+
+<script style="text/javascript">
+    getMarkDown();
+    initMarkDown();
+    function initMarkDown() {
+        showdown.setOption("omitExtraWLInCodeBlocks",true);
+        showdown.setOption("simpleLineBreaks",true);
+        //showdown.setOption("completeHTMLDocument",true);
+        showdown.setOption("ghCodeBlocks",true);
+        showdown.setOption("tasklists",true);
+        showdown.setOption("simplifiedAutoLink",true);
+        //showdown.setFlavor('github');
+    }
+    function getMarkDown() {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8888/cgi-bin/getFile.py",
+            //data: {},
+            //dataType: "text",
+            success: function (reslut) {
+                content = reslut;
+                var converter = new showdown.Converter();
+                var html = converter.makeHtml(content);
+                document.getElementById('content').innerHTML = html;
+            }
+        });
+
+    }
+
+</script>
+
+</html>

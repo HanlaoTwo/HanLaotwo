@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>博客详情</title>
+    <script src="../../js/vue/vue.js"></script>
+    <script src="../../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+</head>
+<script type="text/x-template" id="left">
+    <div>
+        <div>
+            <h4 class="my-0 font-weight-normal"> {{ ci }} </h4>
+            <h3>其他文章</h3>
+        </div>
+
+
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in host_stata">{{ item.title }} {{item.date}}</li>
+        </ul>
+
+    </div>
+
+</script>
+<body>
+<div class="container" id="blog">
+
+
+    <left></left>
+
+</div> <!-- /container -->
+
+<script src="left_content.js"></script>
+<script src="blog.js"></script>
+</body>
+</html>

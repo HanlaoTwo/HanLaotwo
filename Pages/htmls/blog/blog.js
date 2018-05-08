@@ -10,28 +10,7 @@ var demo = new Vue({
     },
     data: {
         clusters:["1","2"],
-        clusters0: [
-            {
-                name: "kafka",
-                host_stata: [
-                    {host: 'hs01', state: "active"},
-                    {host: 'hs02', state: "active"},
-                    {host: 'hs03', state: "active"}]
-            },
-            {
-                name: "jstorm",
-                host_stata: [
-                    {host: 'hs04', state: "active"},
-                    {host: 'hs05', state: "active"},
-                    {host: 'hs06', state: "active"}]
-            },
-            {
-                name: "redis",
-                host_stata: [
-                    {host: 'hs07', state: "active"},
-                    {host: 'hs08', state: "active"},
-                    {host: 'hs09', state: "active"}]
-            }],
+        clusters0: [],
         gridColumns: ['host', 'state'],
         gridData: []
     },

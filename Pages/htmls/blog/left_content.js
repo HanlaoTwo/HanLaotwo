@@ -9,11 +9,11 @@ Vue.component('left', {
     data: function () {
         return {
             host_stata: [
-                {title: 'dasdasdasd', date: "active"},
-                {title: 'hs0xzczxczx1', date: "active"},
-                {title: 'hszxczxvcvnbv01', date: "active"},
-                {title: 'hs2342342342301', date: "active"},
-                {title: 'hghjgfhjghjgs01', date: "active"}]
+                {title: 'sdasasasdasda', date: "2017.01.01"},
+                {title: 'hs0xzczxczx1', date: "2017.01.01"},
+                {title: 'hszxczxvcvnbv01', date: "2017.01.01"},
+                {title: 'hs2342342342301', date: "2017.01.01"},
+                {title: 'hghjgfhjghjgs01', date: "2017.01.01"}]
         }
     },
 

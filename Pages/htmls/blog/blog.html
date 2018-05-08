@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>博客详情</title>
+    <title>---------</title>
     <script src="../../js/vue/vue.js"></script>
     <script src="../../js/bootstrap/bootstrap.min.js"></script>
     <script src="../../js/jquery-3.2.1.min.js"></script>
@@ -17,26 +17,45 @@
     <div>
         <div>
             <h4 class="my-0 font-weight-normal"> {{ ci }} </h4>
-            <h3>其他文章</h3>
+            <h3>others</h3>
         </div>
-
-
         <ul class="list-group">
             <li class="list-group-item" v-for="item in host_stata">{{ item.title }} {{item.date}}</li>
         </ul>
-
     </div>
-
 </script>
+
+<script type="text/x-template" id="right">
+    <div>
+        <div>
+            <h4 class="my-0 font-weight-normal"> {{ ci }} </h4>
+            <h3>content</h3>
+        </div>
+        <ol>
+            <li v-for="item in host_stata"> {{ item.title }}</li>
+        </ol>
+    </div>
+</script>
+
+<script type="text/x-template" id="mid">
+    <div>
+        {{ content }}
+    </div>
+</script>
+
 <body>
 <div class="container" id="blog">
+    <div class="row">
+        <left class="col-md-3"></left>
+        <mid class="col-md-6"></mid>
+        <right class="col-md-3"></right>
+    </div>
 
-
-    <left></left>
-
-</div> <!-- /container -->
+</div>
 
 <script src="left_content.js"></script>
+<script src="right_content.js"></script>
+<script src="mid_conetnt.js"></script>
 <script src="blog.js"></script>
 </body>
 </html>

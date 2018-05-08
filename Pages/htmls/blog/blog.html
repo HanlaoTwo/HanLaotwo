@@ -12,12 +12,13 @@
     <script src="../../js/bootstrap/bootstrap.min.js"></script>
     <script src="../../js/jquery-3.2.1.min.js"></script>
     <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
 </head>
 <script type="text/x-template" id="left">
     <div>
         <div>
             <h4 class="my-0 font-weight-normal"> {{ ci }} </h4>
-            <h3>others</h3>
+            <h3>最新</h3>
         </div>
         <ul class="list-group">
             <li class="list-group-item" v-for="item in host_stata">{{ item.title }} {{item.date}}</li>
@@ -37,25 +38,52 @@
     </div>
 </script>
 
+<script type="text/x-template" id="head_template">
+    <header class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">HanLaotwo的个人网站</h3>
+    </header>
+</script>
+
 <script type="text/x-template" id="mid">
     <div>
         {{ content }}
     </div>
 </script>
 
+
+
 <body>
+
 <div class="container" id="blog">
+
+    <header_com></header_com>
     <div class="row">
         <left class="col-md-3"></left>
         <mid class="col-md-6"></mid>
         <right class="col-md-3"></right>
     </div>
-
+    <footer class="footer">
+        <p>&copy; Company 2017</p>
+    </footer>
 </div>
 
 <script src="left_content.js"></script>
 <script src="right_content.js"></script>
 <script src="mid_conetnt.js"></script>
+<script src="../public/header.js"></script>
 <script src="blog.js"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@ def get_content():
 
 @app.route('/get_list')
 def get_list():
-    lsit = article_tool.query_all_title()
+    lsit = article_tool.query_all()
     data = json.dumps(lsit)
     res = app.make_response(data)
     res.headers['Access-Control-Allow-Origin'] = '*'

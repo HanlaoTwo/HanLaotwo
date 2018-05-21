@@ -6,6 +6,9 @@ Vue.component('left', {
     template: '#left',
     //replace: true,
     props: ['ci'],
+    created: function () {
+        this.getList();
+    },
     data: function () {
         return {
             host_stata: [
@@ -18,17 +21,20 @@ Vue.component('left', {
     },
 
     methods: {
-        fresh: function (key) {
-            console.log("hahahahahhahaha")
-        },
-        stop: function (key) {
-            this.host_stata = [{host: 'hs02', state: "active"}]
-        },
-        start: function (key) {
-            this.host_stata = [{host: 'hs03', state: "active"}]
-        },
-        restart: function (key) {
-            this.host_stata = [{host: 'hs04', state: "active"}]
+        getList:function () {
+            ins = this;
+            return $.ajax({
+                type: 'get',
+                url: baseUrl + '/get_list',
+                data: {},
+                success: function (data) {
+                    console.log(data);
+                    ins.host_stata = data;
+                },
+                error: function () {
+                    //do something
+                }
+            });
         }
     }
 });

@@ -1,7 +1,10 @@
+import json
 from flask import Flask,request,url_for
+from article_tool import articleTool
 
 
 app = Flask(__name__)
+article_tool = articleTool()
 
 @app.route('/')
 def hello_world():
@@ -31,9 +34,14 @@ def get_content():
     res.headers['Access-Control-Allow-Origin'] = '*'
     return res
 
-@app.route('/get_art')
-def user_id():
-    return 'hello art'
+
+@app.route('/get_list')
+def get_list():
+    lsit = article_tool.query_all_title()
+    data = json.dumps(lsit)
+    res = app.make_response(data)
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res
 
 if __name__ == '__main__':
     app.run()

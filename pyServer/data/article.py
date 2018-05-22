@@ -1,4 +1,4 @@
-class datatool:
+class article:
     title = ""
     birthdate = ""
     moddate = ""

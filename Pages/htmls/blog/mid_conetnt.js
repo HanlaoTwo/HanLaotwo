@@ -3,12 +3,31 @@
  * .
  */
 Vue.component('mid', {
+
     template: '#mid',
-    //replace: true,
     props: ['ci'],
+    created: function () {
+        console.log("-----------")
+        this.getArticlebyTitle('hadoop 增加存储目录');
+    },
     data: function () {
         return {
-           content : "这里请避免使用 <select> 元素，因为 WebKit 浏览器不能完全绘制它的样式。"
+            content: "<h1>hello</h1>"
         }
+    },
+    methods: {
+        getArticlebyTitle: function (title) {
+            md = this;
+            return $.ajax({
+                type: 'get',
+                url: baseUrl + '/get_article/' + title,
+                success: function (data) {
+                    md.content = marked(JSON.parse(data).content);
+                    //document.getElementById('content').innerHTML = md.content;
+                },
+                error: function () {}
+            });
+        },
     }
+
 });

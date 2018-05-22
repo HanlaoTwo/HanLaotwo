@@ -11,8 +11,10 @@
     <script src="../../js/vue/vue.js"></script>
     <script src="../../js/bootstrap/bootstrap.min.js"></script>
     <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/marked.js"></script>
     <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="blog.css" rel="stylesheet">
+    <link href="../code.css" rel="stylesheet">
 </head>
 <script type="text/x-template" id="left">
     <div>
@@ -21,7 +23,7 @@
             <h3>最新</h3>
         </div>
         <ul class="list-group">
-            <li class="list-group-item" v-for="item in host_stata">{{ item.title }} {{item.date}}</li>
+            <li class="list-group-item" v-for="item in lcdata">{{ item.title }}</li>
         </ul>
     </div>
 </script>
@@ -53,14 +55,12 @@
                 </li>
             </ul>
         </nav>
-        <h3 class="text-muted">HanLaotwo的个人网站</h3>
+        <!--<h3 class="text-muted">HanLaotwo的个人网站</h3>-->
     </header>
 </script>
 
 <script type="text/x-template" id="mid">
-    <div>
-        {{ content }}
-    </div>
+    <div v-html = "content"></div>
 </script>
 
 

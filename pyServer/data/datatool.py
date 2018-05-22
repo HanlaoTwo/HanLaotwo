@@ -1,5 +1,5 @@
 import sqlite3
-
+import json
 
 class datatool:
     query_all_sql = "select * from art"
@@ -15,3 +15,10 @@ class datatool:
 
     def commit(self):
         self.conn.commit()
+
+# [('test',), ('test',), ('test',), ('test',)]
+    def listToJson(self,listData):
+        return listData.replace("(","{").replace(")","}")
+        # for data in listData:
+        #     article = article(data[0],data[1],data[2],data[3])
+        #     pass

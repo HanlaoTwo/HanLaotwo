@@ -4,32 +4,28 @@
  */
 Vue.component('left', {
     template: '#left',
-    //replace: true,
     props: ['ci'],
     created: function () {
         this.getList();
     },
     data: function () {
         return {
-            host_stata: []
+            lcdata: [{'title': 'test'}, {'title': 'test'}, {'title': 'test'}, {'title': 'test'}]
         }
     },
 
     methods: {
-        getList:function () {
-            ins = this;
+        getList: function () {
+            lc = this;
             return $.ajax({
                 type: 'get',
                 url: baseUrl + '/get_list',
-                data: {},
                 success: function (data) {
-                    console.log(data);
-                    ins.host_stata = data;
+                    lc.lcdata =  JSON.parse(data)
                 },
-                error: function () {
-                    //do something
-                }
+                error: function () {}
             });
-        }
+        },
+
     }
 });

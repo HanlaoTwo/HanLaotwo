@@ -35,11 +35,3 @@ var demo = new Vue({
     }
 
 });
-function setClusters (data) {
-    var clusters = JSON.parse(data);
-    var names =[];
-    for(name in clusters) {
-        names.push(name);
-    }
-    return names;
-}

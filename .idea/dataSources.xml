@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1177077913">
+    <data-source source="LOCAL" name="Sqlite (Xerial) - myweb.db" uuid="80cd594e-591e-4b77-a8a2-1cbb8a9e50d2">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/pyServer/data/myweb.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

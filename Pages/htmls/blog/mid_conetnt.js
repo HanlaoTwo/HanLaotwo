@@ -8,7 +8,7 @@ Vue.component('mid', {
     props: ['ci'],
     created: function () {
         console.log("-----------")
-        this.getArticlebyTitle('hadoop 增加存储目录');
+        this.getArticlebyTitle('查看hdfs根目录下使用量');
     },
     data: function () {
         return {

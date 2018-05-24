@@ -49,8 +49,9 @@
                 <h4 class="my-0 font-weight-normal"> 什么东西左边 </h4>
             </div>
             <ul class="list-group">
-                <li class="list-group-item" v-for="item in catalog">{{ item.name }}
-                    <ul>
+                <li class="list-group-item" v-for="item in catalog"
+                    v-on:click="setShow(item.name)">{{ item.name }}
+                    <ul v-show="false">
                         <li class="list-group-item" v-for="file in item.files"
                             v-on:click="getContent(item.name,file)">{{ file }}
                         </li>
@@ -67,7 +68,7 @@
                 <h3>content</h3>
             </div>
             <ol>
-                <li v-for="item in catalog"> {{ item }}</li>
+                <!--<li v-for="item in catalog"> {{ item }}</li>-->
             </ol>
         </div>
     </div>

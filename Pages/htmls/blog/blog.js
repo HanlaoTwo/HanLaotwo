@@ -9,12 +9,18 @@ var demo = new Vue({
     el: '#blog',
     created: function () {
         this.getCatalog();
-        this.getContent("","")
+        this.getContent("", "");
+        this.setShowList()
     },
     data: {
-        catalog:[{'name': 'blog', 'files': ['blog.css', 'blog.html']}, {'name': 'index', 'files': ['index.css', 'index.html']}],
+        catalog: [{'name': 'blog', 'files': ['blog.css', 'blog.html']}, {
+            'name': 'index',
+            'files': ['index.css', 'index.html']
+        }],
         article: "### shen me dong xi",
         content: [],
+        VshowList: JSON.parse("{}"),
+
     },
     methods: {
         getCatalog: function () {
@@ -24,34 +30,43 @@ var demo = new Vue({
                 url: baseUrl + getContent,
                 data: {},
                 success: function (data) {
-                    console.log(data);
                     ins.catalog = JSON.parse(data);
-                    console.log(ins.catalog)
                 },
                 error: function () {
                     //do something
                 }
             });
         },
-        getContent: function (dir,name) {
+        getContent: function (dir, name) {
             ins = this;
             return $.ajax({
                 type: 'get',
                 url: baseUrl + getArticle,
                 data: {
-                    dir:dir==""?"blog":dir,
-                    name:name==""?"blog.js":name
+                    dir: dir == "" ? "blog" : dir,
+                    name: name == "" ? "blog.js" : name
                 },
                 success: function (data) {
-                    console.log(data);
-                    ins.article =  marked(data);
-                    console.log(ins.article)
+                    ins.article = marked(data);
                 },
                 error: function () {
-                    console.log(dir+"  "+name);
+                    console.log(dir + "  " + name);
                 }
             });
+        },
+        setShowList: function () {
+            ins = this;
+            for (item in ins.catalog) {
+                showName = item.name;
+                ins.VshowList.showName = false;
+            }
+            console.log("----------")
+        },
+        setShow: function (name) {
+            ins = this;
+            ins.VshowList.name = !ins.VshowList.name;
         }
+
 
     }
 

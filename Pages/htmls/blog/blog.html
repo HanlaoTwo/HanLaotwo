@@ -16,29 +16,7 @@
     <link href="blog.css" rel="stylesheet">
     <link href="../code.css" rel="stylesheet">
 </head>
-<script type="text/x-template" id="left">
-    <div>
-        <div>
-            <h4 class="my-0 font-weight-normal"> {{ ci }} </h4>
-            <h3>最新</h3>
-        </div>
-        <ul class="list-group">
-            <li class="list-group-item" v-for="item in lcdata">{{ item.title }}</li>
-        </ul>
-    </div>
-</script>
 
-<script type="text/x-template" id="right">
-    <div>
-        <div>
-            <h4 class="my-0 font-weight-normal"> {{ ci }} </h4>
-            <h3>content</h3>
-        </div>
-        <ol>
-            <li v-for="item in host_stata"> {{ item.title }}</li>
-        </ol>
-    </div>
-</script>
 
 <script type="text/x-template" id="head_template">
     <header class="header clearfix">
@@ -59,11 +37,6 @@
     </header>
 </script>
 
-<script type="text/x-template" id="mid">
-    <div v-html = "content"></div>
-</script>
-
-
 
 <body>
 
@@ -71,9 +44,32 @@
 
     <header_com></header_com>
     <div class="row">
-        <left class="col-md-3"></left>
-        <mid class="col-md-6"></mid>
-        <right class="col-md-3"></right>
+        <div class="col-md-3">
+            <div>
+                <h4 class="my-0 font-weight-normal"> 什么东西左边 </h4>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="item in catalog">{{ item.name }}
+                    <ul>
+                        <li class="list-group-item" v-for="file in item.files"
+                            v-on:click="getContent(item.name,file)">{{ file }}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-6" v-html="article"></div>
+
+        <div class="col-md-3">
+            <div>
+                <h4 class="my-0 font-weight-normal"> 什么东西右边 </h4>
+                <h3>content</h3>
+            </div>
+            <ol>
+                <li v-for="item in catalog"> {{ item }}</li>
+            </ol>
+        </div>
     </div>
     <footer class="footer">
         <p>&copy; Company 2017</p>

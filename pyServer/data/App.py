@@ -1,6 +1,8 @@
 import json
 from flask import Flask, request, url_for
 from article_tool import articleTool
+import ListContent
+import constant
 
 app = Flask(__name__)
 
@@ -54,11 +56,30 @@ def get_list():
     return make_header(data=data)
 
 
-@app.route('/get_article/<title>')
-def article(title):
-    article = article_tool.query(title=title)
-    data = json.dumps(article)
+# # *************************by sql**********************
+# @app.route('/get_article/<title>')
+# def article(title):
+#     article = article_tool.query(title=title)
+#     data = json.dumps(article)
+#     return make_header(data=str(data))
+
+@app.route('/get_conetnt')
+def get_conetnt():
+    content = ListContent.get_content()
+    data = json.dumps(content)
     return make_header(data=str(data))
+
+
+# *********************************** by read file *************************
+# usrl patern: get_article?dir=blog&name=haha
+@app.route('/get_article')
+def article():
+    dir = request.args.get('dir')
+    name = request.args.get('name')
+    path = constant.COTENT_DIR + '\\' + dir + '\\' + name
+    f = open(path, encoding='UTF-8')
+    article = f.read()
+    return make_header(data=str(article))
 
 
 if __name__ == '__main__':

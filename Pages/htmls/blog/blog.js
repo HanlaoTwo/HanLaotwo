@@ -17,9 +17,9 @@ var demo = new Vue({
             'name': 'index',
             'files': ['index.css', 'index.html']
         }],
-        article: "### shen me dong xi",
+        article: "shen me dong xi",
         content: [],
-        VshowList: JSON.parse("{}"),
+        showList: [],
 
     },
     methods: {
@@ -48,6 +48,7 @@ var demo = new Vue({
                 },
                 success: function (data) {
                     ins.article = marked(data);
+
                 },
                 error: function () {
                     console.log(dir + "  " + name);
@@ -57,14 +58,15 @@ var demo = new Vue({
         setShowList: function () {
             ins = this;
             for (item in ins.catalog) {
-                showName = item.name;
-                ins.VshowList.showName = false;
+                ins.showList.push(true)
             }
             console.log("----------")
         },
-        setShow: function (name) {
+        setShow: function (index,context) {
             ins = this;
-            ins.VshowList.name = !ins.VshowList.name;
+            ins.showList.splice(index,1,!ins.showList[index]);
+            //ins.showList[index]= !ins.showList[index];
+            console.log('************')
         }
 
 
